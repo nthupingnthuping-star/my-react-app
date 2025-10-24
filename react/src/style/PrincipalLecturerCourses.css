@@ -1,0 +1,179 @@
+/* ======================
+   PRINCIPAL LECTURER COURSES — ADVANCED STYLING
+   ====================== */
+.report-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.report-title svg {
+  width: 24px;
+  height: 24px;
+  fill: #a0a0a0; /* Medium grey accent */
+}
+
+.dashboard-card {
+  width: 100%;
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+
+.no-classes {
+  text-align: center;
+  color: var(--text-light);
+  font-style: italic;
+  margin-top: 1.5rem;
+}
+
+/* ======================
+   TABLE STYLING
+   ====================== */
+.table-container {
+  overflow-x: auto;
+  border-radius: 16px;
+  margin-top: 1rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.courses-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+}
+
+.courses-table th,
+.courses-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.courses-table th {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #333333;
+  border-bottom: 2px solid var(--border);
+}
+
+.courses-table tbody tr:hover {
+  background: #2a2a2a;
+  transition: background 0.2s ease;
+}
+
+.courses-table td {
+  color: var(--text);
+}
+
+.courses-table td strong {
+  color: #ffffff; /* White for emphasis */
+  font-weight: 700;
+}
+
+.courses-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ======================
+   STATUS & LOADING
+   ====================== */
+.status-message {
+  padding: 12px;
+  border-radius: 12px;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.status-message.error {
+  background: #2a0a0a;
+  color: var(--error);
+  border: 1px solid var(--error);
+}
+
+/* Loading placeholder */
+.dashboard-card > p {
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* ======================
+   RESPONSIVE DESIGN
+   ====================== */
+@media (max-width: 600px) {
+  .courses-table th,
+  .courses-table td {
+    padding: 12px 8px;
+    font-size: 0.9rem;
+  }
+
+  .report-title {
+    font-size: 1.4rem;
+  }
+  
+  .dashboard-card {
+    padding: 1rem;
+  }
+}
+
+/* ======================
+   ADDITIONAL ENHANCEMENTS
+   ====================== */
+.courses-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.courses-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.courses-table tbody tr:nth-child(even):hover {
+  background: #2a2a2a;
+}
+
+/* Status indicators for course data */
+.status-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-indicator.active {
+  background: #22c55e; /* Green for active courses */
+}
+
+.status-indicator.inactive {
+  background: #6b7280; /* Grey for inactive courses */
+}
+
+/* Action buttons within table */
+.action-btn {
+  background: #333333;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.action-btn:hover {
+  background: #3a3a3a;
+  border-color: #ffffff;
+}

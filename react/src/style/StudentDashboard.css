@@ -1,0 +1,94 @@
+/* =============== CRITICAL FIXES FOR INVISIBLE TEXT & CONTROLS =============== */
+
+/* Make dropdown text visible */
+form select {
+  color: #111827 !important; /* Dark gray text */
+  background-color: #ffffff !important; /* White background */
+  border: 2px solid #e5e7eb !important; /* Light gray border */
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+}
+
+/* Make dropdown options readable */
+form select option {
+  color: #111827;
+  background-color: #ffffff;
+}
+
+/* Make textarea text visible */
+form textarea {
+  color: #111827 !important;
+  background-color: #ffffff !important;
+  border: 2px solid #e5e7eb !important;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+}
+
+/* Make placeholder text visible */
+form textarea::placeholder,
+form input::placeholder {
+  color: #6b7280 !important;
+  opacity: 1;
+}
+
+/* Make stars visible and interactive */
+.star {
+  color: #9ca3af !important; /* Gray star */
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.star:hover,
+.star.filled {
+  color: #f59e0b !important; /* Yellow when hovered/filled */
+  transform: scale(1.1);
+}
+
+/* Make "Back to Dashboard" button visible */
+.back-to-dashboard-btn {
+  background: #f3f4f6;
+  color: #111827;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.back-to-dashboard-btn:hover {
+  background: #e5e7eb;
+  transform: translateX(-2px);
+}
+
+/* Make submit button look active */
+.submit-btn {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}

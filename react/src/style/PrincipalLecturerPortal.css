@@ -1,0 +1,253 @@
+/* =============== VARIABLES =============== */
+:root {
+  --primary: #a0a0a0; /* Medium grey for Principal Lecturer */
+  --primary-dark: #808080;
+  --secondary: #ffffff;
+  --light-bg: #0a0a0a;
+  --card-bg: #1a1a1a;
+  --text: #ffffff;
+  --text-light: #888888;
+  --border: #333333;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.5);
+  --radius: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =============== PORTAL LAYOUT =============== */
+.prl-portal {
+  min-height: 100vh;
+  background: var(--light-bg);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* =============== HEADER =============== */
+.portal-header {
+  background: var(--card-bg);
+  padding: 1.5rem 2.5rem;
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.portal-header h1 {
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0;
+}
+
+.prl-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.prl-info span {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.faculty-tag {
+  font-size: 0.95rem;
+  color: #000000;
+  font-weight: 500;
+  background: var(--primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  display: inline-block;
+  width: fit-content;
+  border: 1px solid #888888;
+}
+
+/* =============== TABS =============== */
+.dashboard-tabs {
+  display: flex;
+  gap: 1px;
+  background: #333333;
+  padding: 0.5rem;
+  margin: 1.5rem 2.5rem 0;
+  border-radius: 14px;
+  width: fit-content;
+  box-shadow: var(--shadow-sm);
+}
+
+.dashboard-tabs button {
+  background: #2a2a2a;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-light);
+  cursor: pointer;
+  border-radius: 12px;
+  transition: var(--transition);
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-tabs button:hover:not(.active) {
+  color: var(--text);
+  background: #333333;
+}
+
+.dashboard-tabs button.active {
+  background: var(--primary);
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* =============== CONTENT AREA =============== */
+.dashboard-content {
+  flex: 1;
+  padding: 2rem 2.5rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ensure child components animate smoothly */
+.dashboard-content > div {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* =============== FOOTER / LOGOUT =============== */
+.portal-footer {
+  padding: 1.5rem 2.5rem;
+  display: flex;
+  justify-content: flex-start;
+  border-top: 1px solid var(--border);
+  background: var(--card-bg);
+}
+
+.logout-btn {
+  background: none;
+  border: 2px solid var(--border);
+  color: var(--text);
+  padding: 0.625rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.logout-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: #333333;
+  transform: translateX(-4px);
+}
+
+/* =============== SHARED CARD STYLE (for child components) =============== */
+.dashboard-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.4s ease-out;
+  border: 1px solid var(--border);
+}
+
+/* =============== RESPONSIVE =============== */
+@media (max-width: 768px) {
+  .portal-header,
+  .dashboard-tabs,
+  .dashboard-content,
+  .portal-footer {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .dashboard-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 1.5rem 1.25rem 0;
+  }
+
+  .dashboard-tabs button {
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .prl-info {
+    align-items: flex-start;
+  }
+  
+  .portal-header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* =============== ADDITIONAL ENHANCEMENTS =============== */
+/* Active tab indicator */
+.dashboard-tabs button.active::before {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: #000000;
+  border-radius: 1px;
+}
+
+/* Mobile menu for smaller screens */
+@media (max-width: 480px) {
+  .portal-header {
+    padding: 1rem 1.25rem;
+  }
+  
+  .dashboard-content {
+    padding: 1rem 1.25rem;
+  }
+  
+  .dashboard-card {
+    padding: 1.5rem;
+  }
+  
+  .faculty-tag {
+    font-size: 0.875rem;
+    padding: 0.2rem 0.6rem;
+  }
+}
+
+/* Focus states for accessibility */
+.dashboard-tabs button:focus-visible,
+.logout-btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Loading state for content */
+.dashboard-content.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}

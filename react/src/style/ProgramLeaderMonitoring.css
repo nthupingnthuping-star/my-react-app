@@ -1,0 +1,283 @@
+/* =============== VARIABLES =============== */
+:root {
+  --primary: #d4d4d4; /* Light grey for Program Leader */
+  --primary-dark: #a3a3a3;
+  --secondary: #ffffff;
+  --light-bg: #0a0a0a;
+  --card-bg: #1a1a1a;
+  --text: #ffffff;
+  --text-light: #888888;
+  --border: #333333;
+  --success: #22c55e;
+  --warning: #eab308;
+  --error: #dc2626;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.5);
+  --radius: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =============== DASHBOARD CARD =============== */
+.dashboard-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.4s ease-out;
+  border: 1px solid var(--border);
+}
+
+.report-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.report-title svg {
+  width: 28px;
+  height: 28px;
+  color: var(--primary);
+}
+
+/* =============== STATS GRID =============== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #2a2a2a 0%, #333333 100%);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid var(--border);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: #ffffff;
+  background: linear-gradient(135deg, #333333 0%, #3a3a3a 100%);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+/* =============== LECTURER SECTION =============== */
+h3 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 2rem 0 1.25rem;
+}
+
+.no-classes {
+  text-align: center;
+  color: var(--text-light);
+  font-style: italic;
+  padding: 2rem;
+  font-size: 1.1rem;
+}
+
+/* =============== HORIZONTAL CAROUSEL =============== */
+.lecturers-carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) #2a2a2a;
+}
+
+.lecturers-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.lecturers-carousel::-webkit-scrollbar-track {
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+
+.lecturers-carousel::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.lecturer-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  min-width: 280px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  flex: 0 0 auto;
+}
+
+.lecturer-card:hover {
+  border-color: #ffffff;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.lecturer-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.lecturer-card p {
+  margin: 0.5rem 0;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.lecturer-card strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* =============== LECTURER METRICS =============== */
+.lecturer-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border);
+}
+
+.star-rating {
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.performance-badge {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: fit-content;
+  border: 1px solid;
+}
+
+.performance-on-track {
+  background: #1a2a1a;
+  color: #4ade80;
+  border-color: #2a5c2a;
+}
+
+.performance-needs-attention {
+  background: #2a0a0a;
+  color: #f87171;
+  border-color: #5c2a2a;
+}
+
+/* =============== ERROR & STATUS =============== */
+.status-message {
+  padding: 0.875rem 1.25rem;
+  border-radius: var(--radius);
+  margin: 1rem 0;
+  font-weight: 600;
+}
+
+.status-message.error {
+  background: #2a0a0a;
+  color: #f87171;
+  border-left: 4px solid var(--error);
+}
+
+/* =============== ANIMATIONS =============== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =============== ADDITIONAL ENHANCEMENTS =============== */
+/* Lecturer card status indicators */
+.lecturer-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-active {
+  background: var(--success);
+}
+
+.status-inactive {
+  background: var(--text-light);
+}
+
+/* Course count styling */
+.course-count {
+  background: #2a2a2a;
+  color: var(--primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    padding: 1.25rem;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
+  
+  .lecturer-card {
+    min-width: 260px;
+    padding: 1.25rem;
+  }
+}
+
+/* Focus states for accessibility */
+.lecturer-card:focus-within {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
